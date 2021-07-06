@@ -1,9 +1,0 @@
-com\createiq\service\ProductServiceImpl.class
-com\createiq\bean\Product.class
-com\createiq\controller\ProductTest.class
-com\createiq\service\ProductService.class
-com\createiq\dao\ProductDao.class
-com\createiq\util\Details.class
-com\createiq\queries\Queries.class
-com\createiq\util\ConnectionUtil.class
-com\createiq\dao\ProductDaoImpl.class

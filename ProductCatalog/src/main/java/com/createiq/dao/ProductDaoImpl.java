@@ -44,7 +44,9 @@ public class ProductDaoImpl implements ProductDao {
 		try {
 			ps=connection.prepareStatement(Queries.update);
 			ps.setString(1, product.getpName());
-			ps.setInt(2, product.getpId());
+			ps.setDouble(2, product.getpPrice());
+			
+			ps.setInt(3, product.getpId());
 			int exe=ps.executeUpdate();
 			
 			System.out.println("sucessfully Executed update "+product.getpId());
@@ -81,20 +83,20 @@ public class ProductDaoImpl implements ProductDao {
 			}
 			return products;
 	}
-	public List<Product> findById(Integer id) {
+	public Product findById(Integer id) {
 		connection=	ConnectionUtil.openConnection();
-		List<Product> products=new ArrayList<>();
+		Product product=new Product();
 		
 				try {
 					ps=connection.prepareStatement(Queries.find_by_id);
 					ps.setInt(1, id);
 					rs=ps.executeQuery();
 					while (rs.next()) {
-						Product product=new Product();
+						
 						       product.setpId(rs.getInt(1));
 						       product.setpName(rs.getString(2));
 						       product.setpPrice(rs.getDouble(3));
-						       products.add(product);
+						       
 					}
 					
 					
@@ -106,7 +108,7 @@ public class ProductDaoImpl implements ProductDao {
 				finally {
 					ConnectionUtil.closeRs(connection, ps, rs);
 				}
-				return products;
+				return product;
 				
 	}
 	public void delete_by_id(Integer id) {
@@ -125,6 +127,13 @@ connection=ConnectionUtil.openConnection();
 		             ConnectionUtil.close(connection, ps);
 		}
 		
+	}
+	
+	public static void main(String[] args) {
+		ProductDaoImpl pdi=new ProductDaoImpl();
+		Product product=new Product(4,"Swwetha",100000);
+		
+	pdi.update(product);
 	}
 
 	

@@ -1,5 +1,7 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+<h2>Welcome To Products PAge</h2>
+<jsp:forward page="./findController"></jsp:forward>
+
 </body>
 </html>

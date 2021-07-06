@@ -1,4 +1,4 @@
-package com.createiq.controller;
+package com.createiq.client;
 
 import com.createiq.service.ProductService;
 import com.createiq.service.ProductServiceImpl;

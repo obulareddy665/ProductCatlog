@@ -27,8 +27,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> findById(Integer id) {
-		List<Product> product=pd.findById(id);
+	public Product findById(Integer id) {
+		Product product=pd.findById(id);
 		return product;
 	
 	}
